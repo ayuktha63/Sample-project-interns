@@ -1,0 +1,27 @@
+package com.webapp.loginpage.service;
+
+import com.webapp.loginpage.entity.Login;
+import com.webapp.loginpage.repository.LoginRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class LoginService {
+
+    @Autowired
+    private LoginRepository loginRepository;
+
+    public List<Login> getAllUsers() {
+        return loginRepository.findAll();
+    }
+
+    public Login createUser(Login login) {
+        return loginRepository.save(login);
+    }
+
+    public void deleteUser(Long id) {
+        loginRepository.deleteById(id);
+    }
+}
