@@ -2,6 +2,7 @@ package com.webapp.loginpage.controller;
 
 import com.webapp.loginpage.entity.Login;
 import com.webapp.loginpage.service.LoginService;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,4 +30,10 @@ public class LoginController {
         loginService.deleteUser(id);
         return "User deleted!";
     }
+
+    @GetMapping("/users/{id}")
+    public Login getUserById(@PathVariable Long id){
+        return loginService.getUserById(id);
+    }
+
 }

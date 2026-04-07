@@ -24,4 +24,8 @@ public class LoginService {
     public void deleteUser(Long id) {
         loginRepository.deleteById(id);
     }
+
+    public Login getUserById(Long id){
+        return loginRepository.findById(id).orElse(null);
+    }
 }
