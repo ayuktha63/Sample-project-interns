@@ -28,4 +28,11 @@ public class LoginService {
     public Login getUserById(Long id){
         return loginRepository.findById(id).orElse(null);
     }
+
+    public Login updateUser(Long id,Login updatedUser) {
+            Login existingUser = loginRepository.findById(id).orElse(null);
+            existingUser.setUsername(updatedUser.getusername());
+            existingUser.setPassword(updatedUser.getPassword());
+            return  loginRepository.save(existingUser);
+    }
 }
